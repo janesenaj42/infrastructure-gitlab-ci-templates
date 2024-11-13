@@ -1,0 +1,6 @@
+.docker:
+    image: my.repo/docker:20.10.14
+    before_script:
+        - cp /etc/gitlab-runner/certs/ca.crt /usr/local/share/ca-certificates/ca.crt
+        - update-ca-certificates --fresh > /dev/null
+        - docker login -u $PROJECT_USER -p $PROJECT_PASSWORD $PUBLISH_DOCKER_REGISTRY

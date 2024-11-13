@@ -1,0 +1,7 @@
+.pip:
+    before_script:
+        - pip config set global.index-url http://my.private.repo/artifactory/api/pypi/pypi-public/simple
+        - pip config set global.trusted-host my.private.repo
+        - pip install poetry
+        - poetry install
+        - source `poetry env info --path`/bin/activate

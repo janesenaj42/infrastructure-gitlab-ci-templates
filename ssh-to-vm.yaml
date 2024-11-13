@@ -1,0 +1,7 @@
+.ssh-to-vm:
+  before_script:
+    - eval $(ssh-agent -s)
+    - chmod 400 "$SSH_PRIVATE_KEY"
+    - ssh-add "$SSH_PRIVATE_KEY"
+    - mkdir -p ~/.ssh && touch ~/.ssh/known_hosts
+    - chmod 700 ~/.ssh # need this if not ssh will complain that that permissions are too open
